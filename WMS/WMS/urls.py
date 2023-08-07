@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from django.views.generic import TemplateView
 import Depozit.urls as depozit_urls
 import Produse.urls as produse_urls
@@ -26,3 +28,4 @@ urlpatterns = [
     path('depozit/',include(depozit_urls)),
     path('producatori/',include(produse_urls))
 ]
+urlpatterns += staticfiles_urlpatterns()

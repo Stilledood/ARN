@@ -37,18 +37,19 @@ class ListaProduse(View):
     def get(self,request):
 
         produse = self.model_class.objects.all()
-        context = {}
-        for produs in produse:
-            inventar_produs = {}
-            cantitate_total = 0
-            for produs_set in produs.productset_set.all():
-                cantitate_total += produs_set.cantitate
-                raft = produs_set.raft.nume
-                if raft not in inventar_produs:
-                    inventar_produs[raft] = produs_set.cantitate
-                else:
-                    inventar_produs[raft] = inventar_produs[raft] + produs_set.cantitate
-            context[produs.nume] = inventar_produs
+        lista_produse = [{'code':x.cod_produs,'nume':x.nume} for x in produse]
+        context = {'response':lista_produse}
+       ## for produs in produse:
+        ##    inventar_produs = {}
+           ## cantitate_total = 0
+            ##for produs_set in produs.productset_set.all():
+                ##cantitate_total += produs_set.cantitate
+                ##raft = produs_set.raft.nume
+                ##if raft not in inventar_produs:
+                    ##inventar_produs[raft] = produs_set.cantitate
+                ##else:
+                    ##inventar_produs[raft] = inventar_produs[raft] + produs_set.cantitate
+            ##context[produs.nume] = inventar_produs
         return JsonResponse(context)
 
 
