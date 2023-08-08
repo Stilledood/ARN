@@ -248,13 +248,30 @@
                   		</div>
 
                   	</div><!-- /row mt -->
-
-
                       <div class="row mt">
+                          <div class="col-md-12 col-sm-2 mb" align="right">
+                               <div class="input-group rounded" >
+                                      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+                                </div>
+                          </div>
+
                       <!-- SERVER STATUS PANELS -->
                       	<div class="col-md-12 col-sm-8 mb">
-                      		<ul class="list-group" id="produse" >
-                            </ul>
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col"> #</th>
+                                  <th scope="col">Cod Produs</th>
+                                  <th scope="col">Nume Produs</th>
+                                  <th scope="col">Stoc</th>
+                                  <th scope="col">Raft</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table-group-divider" id="produse">
+
+                              </tbody>
+                            </table>
+
                       	</div><!-- /col-md-4-->
 
                       <script src="{% static 'js/loadproducts.js' %}"></script>

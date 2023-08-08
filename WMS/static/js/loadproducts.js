@@ -6,8 +6,17 @@ const productELement = document.getElementById("produse")
 
 // Functie de formatat un product output
 
-function formatProductElement(produs){
-    return `<li class="list-group-item">${produs.nume}</li>`
+function formatProductElement(produs, positionNumber){
+
+    return `<tr>
+    <th scope="row">${positionNumber+1}</th>
+                <td>${produs.cod}</td>
+                <td>${produs.nume}</td>
+                <td>${produs.cantitate}</td>
+                <td>${produs.raft}</td>
+    </tr>`
+    
+    
 }
 
 xhr.responseType = responseType;
@@ -19,7 +28,7 @@ xhr.onload = function(){
     console.log(listedProducts);
     let finalProductString = '';
     for (let i = 0; i < listedProducts.length; i++){
-        let displayProduct = formatProductElement(listedProducts[i]);
+        let displayProduct = formatProductElement(listedProducts[i],i);
         finalProductString += displayProduct;
     }
 

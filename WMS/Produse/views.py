@@ -37,20 +37,33 @@ class ListaProduse(View):
     def get(self,request):
 
         produse = self.model_class.objects.all()
-        lista_produse = [{'code':x.cod_produs,'nume':x.nume} for x in produse]
+        lista_produse = []
+        for pr in produse:
+            dict_produs = {}
+            dict_produs['cod'] = pr.cod_produs
+            dict_produs['nume'] = pr.nume
+            print(pr.productset_set.all())
+            for prs in pr.productset_set.all():
+                if 'cantitate' not in dict_produs:
+                    dict_produs['cantitate'] = prs.cantitate
+                else:
+                    dict_produs['cantitate'] = dict_produs['cantitate'] + prs.cantitate
+                if 'raft' not in dict_produs:
+                    dict_produs['raft'] = [prs.raft.nume]
+                else:
+                    if prs.raft.nume not in dict_produs['raft']:
+                        dict_produs['raft'].append(prs.raft.nume)
+            lista_produse.append(dict_produs)
+        print(lista_produse)
+
+
         context = {'response':lista_produse}
-       ## for produs in produse:
-        ##    inventar_produs = {}
-           ## cantitate_total = 0
-            ##for produs_set in produs.productset_set.all():
-                ##cantitate_total += produs_set.cantitate
-                ##raft = produs_set.raft.nume
-                ##if raft not in inventar_produs:
-                    ##inventar_produs[raft] = produs_set.cantitate
-                ##else:
-                    ##inventar_produs[raft] = inventar_produs[raft] + produs_set.cantitate
-            ##context[produs.nume] = inventar_produs
         return JsonResponse(context)
+
+
+class ProductSearch(View):
+
+
 
 
 
