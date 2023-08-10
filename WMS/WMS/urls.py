@@ -24,7 +24,7 @@ import Produse.urls as produse_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='home.html')),
+    path('', include(produse_urls)),
     path('depozit/',include(depozit_urls)),
     path('producatori/',include(produse_urls))
 ]

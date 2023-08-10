@@ -1,0 +1,22 @@
+{% if produse %}
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Cod Produs</th>
+          <th scope="col">Nume</th>
+          <th scope="col">Inventar</th>
+            <th scope="col">Raft</th>
+        </tr>
+      </thead>
+        <tbody>
+            {% for produs in produse %}
+            <td>{{produs.cod}}</td>
+            <td>{{produs.nume}}</td>
+            <td>{{produs.cantitate}}</td>
+            {% for key,value in produs.raft.items %}
+            <td>Raft-{{key}}, Cantitate-{{value}}</td>
+            {% endfor %}
+        </tbody>
+        {% endfor %}
+    </table>
+{% endif %}

@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import RaftDetails
+from .views import DepozitDetails
 
 urlpatterns = [
-    path('',RaftDetails.as_view(), name='detalii_raft'),
+    path('',DepozitDetails.as_view(), name='detalii_depozit'),
 ]

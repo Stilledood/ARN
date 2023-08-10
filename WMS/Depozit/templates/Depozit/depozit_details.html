@@ -1,0 +1,33 @@
+{% extends parent_template|default:'Depozit/depozit_base.html' %}
+{% load static %}
+{% block content %}
+    <section id="main-content">
+        <section class="wrapper">
+            </div><!-- /row mt -->
+              <div class="row mt">
+                   <div class="col-6 align-left">
+                        <i id="search-icon" class="fas fa-search"></i>
+                        <input id="user-input" placeholder="Search">
+                   </div>
+                  <div id="replaceable-content" class="col-6">
+                    {% include 'produse_search_result.html' %}
+                  </div>
+
+
+              <!-- SERVER STATUS PANELS -->
+                <div class="col-md-12 col-sm-8 mb">
+
+                </div><!-- /col-md-4-->
+
+              <script src="{% static 'js/loadproducts.js' %}"></script>
+
+                <div class="col-md-4 mb">
+                    <!-- WHITE PANEL - TOP USER -->
+
+                </div><!-- /col-md-4 -->
+
+
+            </div><!-- /row -->
+        </section>>
+    </section>>
+{% endblock content %}
