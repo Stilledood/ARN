@@ -7,6 +7,9 @@ class Depozit(models.Model):
     nume = models.CharField(max_length=200, blank=False)
     adresa = models.CharField(max_length=255, blank=False)
 
+    def __str__(self):
+        return self.nume
+
 
 
 class Raft(models.Model):
@@ -14,4 +17,10 @@ class Raft(models.Model):
 
     nume = models.CharField(max_length=10, blank=False)
     depozit = models.ForeignKey(Depozit, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['nume']
+
+    def __str__(self):
+        return self.nume
 

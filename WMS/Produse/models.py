@@ -12,17 +12,29 @@ class Producator(models.Model):
     telefon_persoana_contact = models.CharField(max_length=30, blank=True)
     email_persoana_contact = models.CharField(max_length=50, blank=True)
 
+    class Meta:
+        ordering = ['nume']
+
+    def __str__(self):
+        return self.nume
+
 
 
 class Produs(models.Model):
     '''Class to define a model for product object'''
 
-    cod_produs = models.CharField(max_length=10, primary_key=True)
+    cod_produs = models.CharField(max_length=50, primary_key=True)
     nume = models.CharField(max_length=200, blank=False)
     inaltime = models.IntegerField()
     latime = models.IntegerField()
     lungime = models.IntegerField()
     producator = models.ForeignKey(Producator, on_delete=models.DO_NOTHING)
+
+    class Meta:
+        ordering = ['nume']
+
+    def __str__(self):
+        return self.nume
 
 
 class ProductSet(models.Model):
@@ -31,6 +43,10 @@ class ProductSet(models.Model):
     produs = models.ForeignKey(Produs, on_delete=models.DO_NOTHING)
     cantitate = models.IntegerField(blank=False)
     raft = models.ForeignKey(Raft, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return self.produs.nume
+
 
 
 

@@ -36,6 +36,7 @@ class DepozitDetails(View):
         lista_produse = []
         if url_patterns:
             produse = self.model_class.objects.filter(nume__icontains=url_patterns)
+            produse = self.model_class.objects.filter(cod_produs__icontains=url_patterns)
         else:
             produse = self.model_class.objects.all()
 
