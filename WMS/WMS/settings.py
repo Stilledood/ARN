@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 
     #User apps
     'Produse',
-    'Depozit'
+    'Depozit',
+    'Orders'
 ]
 
 MIDDLEWARE = [
